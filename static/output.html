@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formatted Output</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        pre {
+            white-space: pre-wrap; /* Allow the content to wrap within the element */
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <h1>Blockchain Output</h1>
+    <h2>Transaction Details</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Key</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody id="outputTableBody">
+            <!-- Dynamic content will be inserted here -->
+        </tbody>
+    </table>
+
+    <h2>Formatted Blockchain Data</h2>
+    <pre id="formattedOutput"></pre>
+
+    <script>
+        // Assuming you have the output data available in the following format
+        const outputData = {
+            "transactionHash": "0xc133dabe44e460ee81a9aa36e70e89610a1275f06e3f57234cf54e2e17e60185",
+            "blockNumber": 71,
+            "blockHash": "0xb41ba48a0bd938626e4b66ed94d58839f7115d128764138a14cc5811f1c02864",
+            "from": "0xab511cc84d26e78c66a616922ee00e6750c02211",
+            "to": "0x6d015e2cfad7b81e96ad64fbb6a71ae9bd2120da",
+            "cumulativeGasUsed": 215064,
+            "gasUsed": 215064,
+            "status": true
+        };
+
+        function populateTable(data) {
+            const tableBody = document.getElementById('outputTableBody');
+            for (const [key, value] of Object.entries(data)) {
+                const row = document.createElement('tr');
+                const cell1 = document.createElement('td');
+                const cell2 = document.createElement('td');
+                cell1.textContent = key;
+                cell2.textContent = value;
+                row.appendChild(cell1);
+                row.appendChild(cell2);
+                tableBody.appendChild(row);
+            }
+        }
+
+        function formatAndDisplayData(data) {
+            const formattedOutput = document.getElementById('formattedOutput');
+            formattedOutput.textContent = JSON.stringify(data, null, 4); // JSON formatted output
+        }
+
+        // Populate table and formatted output
+        populateTable(outputData);
+        formatAndDisplayData(outputData);
+    </script>
+</body>
+</html>

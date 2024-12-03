@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drug Traceability System</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("static/block download.jpg");
+            backdrop-filter: blur(1px);
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .form-container {
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+            color: azure;
+        }
+
+        button {
+            width: 50;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+        }
+
+        h2 {
+            color: #0e0b0b;
+        }
+
+        #mineResponse {
+            color: white;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Drug Traceability System</h1>
+    <div class="form-container">
+        <h2>Mine a new block:</h2>
+        <button id="mineBtn">Mine Block</button>
+        <div id="mineResponse"></div>
+        
+        <h2>Create new transaction:</h2>
+        <label for="sender">Sender:</label>
+        <input type="text" id="sender" placeholder="Sender">
+        <br>
+        <label for="recipient">Recipient:</label>
+        <input type="text" id="recipient" placeholder="Recipient">
+        <br>
+        <label for="drug_name">Drug Name:</label>
+        <input type="text" id="drug_name" placeholder="Drug Name">
+        <br>
+        <button id="createTransactionBtn">Create Transaction</button>
+        <p id="transactionResponse"></p>
+        
+        <h2>Blockchain:</h2>
+        <button id="getChainBtn">Get Full Chain</button>
+        <pre id="chainResponse"></pre>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.6.1/dist/web3.min.js"></script>
+
+    
+    <script type="module" src="/static/index.js"></script>
+
+
+</body>
+</html>

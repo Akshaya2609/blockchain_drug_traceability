@@ -1,0 +1,90 @@
+/* Reset default margin and padding for the whole page */
+body, h1, h2, div, form, label, input, button, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set background color and font family for the body */
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+/* Style the heading */
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Style the main containers */
+div {
+    max-width: 600px;
+    margin: 0 auto 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the form elements */
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: azure;
+}
+
+input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Style the transaction response paragraph */
+p#transactionResponse {
+    margin-top: 10px;
+    font-style: italic;
+}
+p#mineResponse {
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* Style the blockchain button */
+#getChainBtn {
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#getChainBtn:hover {
+    background-color: #218838;
+}

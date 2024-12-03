@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain</title>
+    <style>
+        /* Reset default margin and padding for the whole page */
+body, table {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set background color and font family for the body */
+body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+}
+
+/* Style the heading */
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Style the table */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the table header */
+th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Style the table cells */
+td {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+
+/* Style the odd rows */
+tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+/* Style the table footer */
+tfoot {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Blockchain</h1>
+    <table id="blockchainTable">
+        <thead>
+            <tr>
+                <th>Index</th>
+                <th>Timestamp</th>
+                <th>Transactions</th>
+                <th>Proof</th>
+                <th>Previous Hash</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Blockchain data will be inserted here dynamically -->
+        </tbody>
+    </table>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    fetch('/chain')
+        .then(response => response.json())
+        .then(data => {
+            const blockchainTable = document.getElementById('blockchainTable');
+            const tbody = blockchainTable.getElementsByTagName('tbody')[0];
+
+            data.chain.forEach(block => {
+                const row = tbody.insertRow();
+                row.insertCell(0).textContent = block.index;
+                row.insertCell(1).textContent = new Date(block.timestamp * 1000).toLocaleString();
+                row.insertCell(2).textContent = JSON.stringify(block.transactions);
+                row.insertCell(3).textContent = block.proof;
+                row.insertCell(4).textContent = block.previous_hash;
+            });
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+});
+
+    </script>
+</body>
+</html>
